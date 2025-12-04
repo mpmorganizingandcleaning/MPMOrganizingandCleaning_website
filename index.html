@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     body { font-family: 'Poppins', sans-serif; margin: 0; background: #f4f8fb; color: #333; }
     header { background: linear-gradient(135deg, #0A6AA6, #2C9BD6); color: white; padding: 100px 20px 80px 20px; text-align: center; }
@@ -70,15 +69,23 @@
       <a href="#">Instagram</a>
       <a href="#">Google Business</a>
     </div>
-    <!-- Updated form to send email using mailto -->
-    <form style="margin-top:25px; display:flex; flex-direction:column; max-width:400px;" action="mailto:mpmorganizingandcleaning@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
-      <input type="email" name="email" placeholder="Your Email" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
-      <textarea name="message" placeholder="Message" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;"></textarea>
-      <button type="submit" style="background:#0A6AA6; color:white; padding:14px; font-size:18px; border:none; border-radius:10px; cursor:pointer; transition:0.3s;">Send Message</button>
-    </form>
+    <!-- Simplified contact form using mailto link directly on button -->
+    <div style="margin-top:25px; display:flex; flex-direction:column; max-width:400px;">
+      <input id="contact-name" type="text" placeholder="Your Name" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+      <input id="contact-email" type="email" placeholder="Your Email" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+      <textarea id="contact-message" placeholder="Message" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;"></textarea>
+      <button id="send-message" style="background:#0A6AA6; color:white; padding:14px; font-size:18px; border:none; border-radius:10px; cursor:pointer; transition:0.3s;">Send Message</button>
+    </div>
   </section>
 </div>
 <footer>© 2025 MPM Organizing & Cleaning — Professional Cleaning & Organizing Services</footer>
+<script>
+  document.getElementById('send-message').addEventListener('click', function() {
+    var name = encodeURIComponent(document.getElementById('contact-name').value);
+    var email = encodeURIComponent(document.getElementById('contact-email').value);
+    var message = encodeURIComponent(document.getElementById('contact-message').value);
+    window.location.href = 'mailto:mpmorganizingandcleaning@gmail.com?subject=Website%20Contact%20Form&body=Name:%20' + name + '%0AEmail:%20' + email + '%0AMessage:%20' + message;
+  });
+</script>
 </body>
 </html>
