@@ -3,70 +3,242 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MPM Organizing & Cleaning, LLC</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f6f7f9; }
-    header { background: #0b78a3; color: #fff; padding: 30px; text-align: center; }
-    header h1, header p { margin: 8px; }
-    .container { padding: 20px; max-width: 1000px; margin: auto; }
-    .services, .gallery, .reviews { margin-top: 30px; }
-    .services div, .reviews div { background: #fff; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
-    .gallery img { width: 32%; margin: 1%; border-radius: 8px; display: inline-block; cursor: pointer; }
-    footer { background: #0b78a3; color: #fff; text-align: center; padding: 12px; margin-top: 40px; }
+  <title>MPM Organizing & Cleaning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    .editable { outline: 2px dashed #aaa; padding: 2px; }
-    .gallery img { border: 2px dashed #ccc; }
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f4f8fb;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0A6AA6, #2C9BD6);
+      color: white;
+      padding: 100px 20px 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 15px;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    header .summary {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 300;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .logo-placeholder {
+      width: 160px;
+      height: 160px;
+      background: white;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0A6AA6;
+      font-weight: 700;
+      font-size: 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      color: #0A6AA6;
+      font-size: 34px;
+      margin-bottom: 25px;
+      border-bottom: 4px solid #0A6AA6;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 50px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .service-item {
+      padding: 18px 0;
+      border-bottom: 1px solid #e6e6e6;
+      font-size: 19px;
+    }
+
+    .service-item:last-child {
+      border-bottom: none;
+    }
+
+    .gallery-placeholder {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .gallery-box {
+      width: 32%;
+      background: #eaf3f9;
+      height: 220px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0A6AA6;
+      font-size: 20px;
+      font-weight: 600;
+      border: 3px dashed #0A6AA6;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-box:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .booking-btn {
+      display: inline-block;
+      background: #0A6AA6;
+      color: white;
+      padding: 18px 36px;
+      border-radius: 12px;
+      font-size: 22px;
+      text-decoration: none;
+      margin-top: 25px;
+      transition: 0.3s;
+    }
+    .booking-btn:hover {
+      background: #084f7a;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+    }
+
+    .socials {
+      margin-top: 25px;
+    }
+    .socials a {
+      margin-right: 18px;
+      text-decoration: none;
+      font-size: 22px;
+      color: #0A6AA6;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: #084f7a;
+    }
+
+    footer {
+      background: #0A6AA6;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-box { width: 48%; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-box { width: 100%; }
+      header h1 { font-size: 38px; }
+      header p { font-size: 20px; }
+      header .summary { font-size: 16px; }
+      .booking-btn { font-size: 20px; padding: 16px 32px; }
+    }
   </style>
 </head>
+
 <body>
 
-<header contenteditable="true" class="editable">
-  <h1>MPM Organizing & Cleaning, LLC</h1>
-
-  <!-- ✨ Luxury / High-End Value Statement (Option 3) -->
-  <p style="font-size: 1.25rem; font-weight: 600;">
-    Elevate Your Space With Premium Cleaning & Organizing
-  </p>
-  <p style="font-size: 1rem;">
-    Delivering meticulous, dependable service for homes and businesses across Bergen, Rockland & Orange Counties.
-  </p>
-
-  <p>Call / Text Mike: (917) 337-5983</p>
+<header>
+  <div class="logo-placeholder">LOGO</div>
+  <h1>MPM Organizing & Cleaning</h1>
+  <p>Your Space. Cleaner. Brighter. Better.</p>
+  <p class="summary">We provide professional residential and commercial cleaning along with expert organizing services to transform your home or office into a spotless, organized, and stress-free space.</p>
 </header>
 
 <div class="container">
-  <section class="services">
-    <h2 contenteditable="true" class="editable">Our Services</h2>
-    <div contenteditable="true" class="editable"><strong>Residential Cleaning:</strong> Weekly, biweekly, deep cleans, move-in/out.</div>
-    <div contenteditable="true" class="editable"><strong>Commercial Cleaning:</strong> Small office, workspace sanitization.</div>
-    <div contenteditable="true" class="editable"><strong>Organizing Services:</strong> Closets, kitchens, garage, home office.</div>
+
+  <section class="card">
+    <h2>Our Services</h2>
+    <div class="service-item"><strong>Residential Cleaning:</strong> Standard, deep clean, move-in/move-out, recurring schedules.</div>
+    <div class="service-item"><strong>Commercial Cleaning:</strong> Deep cleaning, organizing, carpet cleaning, offices, studios, and workspaces.</div>
+    <div class="service-item"><strong>Professional Organizing:</strong> Kitchens, closets, garages, offices & full-home organizing.</div>
+    <a href="#contact" class="booking-btn">Book a Cleaning</a>
   </section>
 
-  <section class="gallery">
-    <h2 contenteditable="true" class="editable">Before & After</h2>
-    <img src="images/before1.jpg" alt="Before 1" onclick="editImage(this)">
-    <img src="images/after1.jpg" alt="After 1" onclick="editImage(this)">
-    <img src="images/before2.jpg" alt="Before 2" onclick="editImage(this)">
-    <img src="images/after2.jpg" alt="After 2" onclick="editImage(this)">
+  <section class="card">
+    <h2>Before & After Gallery</h2>
+    <div class="gallery-placeholder">
+      <div class="gallery-box">Before 1</div>
+      <div class="gallery-box">After 1</div>
+      <div class="gallery-box">Before 2</div>
+      <div class="gallery-box">After 2</div>
+      <div class="gallery-box">Before 3</div>
+      <div class="gallery-box">After 3</div>
+    </div>
   </section>
 
-  <section class="reviews">
-    <h2 contenteditable="true" class="editable">Customer Reviews</h2>
-    <div contenteditable="true" class="editable">"Fantastic job — my house has never looked better." — Sarah R., Bergen County</div>
-    <div contenteditable="true" class="editable">"Reliable & thorough. Transformed my garage and office." — Carlos M., Rockland County</div>
+  <section id="contact" class="card">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> (917) 337-5983</p>
+    <p><strong>Email:</strong> mpmorganizingandcleaning@gmail.com</p>
+    <p>Serving Bergen, Rockland & Orange Counties</p>
+
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Google Business</a>
+    </div>
+
+    <!-- Booking Form -->
+    <form style="margin-top:25px; display:flex; flex-direction:column; max-width:400px;" action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+      <input type="email" name="email" placeholder="Your Email" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+      <textarea name="message" placeholder="Message" style="padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;"></textarea>
+      <button type="submit" style="background:#0A6AA6; color:white; padding:14px; font-size:18px; border:none; border-radius:10px; cursor:pointer; transition:0.3s;">Send Message</button>
+    </form>
   </section>
+
 </div>
 
-<footer contenteditable="true" class="editable">
-  &copy; 2025 MPM Organizing & Cleaning, LLC — Serving Bergen, Rockland & Orange Counties
+<footer>
+  © 2025 MPM Organizing & Cleaning — Professional Cleaning & Organizing Services
 </footer>
-
-<script>
-  function editImage(img) {
-    const url = prompt("Enter image URL to replace this image:", img.src);
-    if (url) img.src = url;
-  }
-</script>
 
 </body>
 </html>
